@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Gui", "Wpf.Gui\Wpf.Gui.csproj", "{ECB59245-EF4B-4767-A057-CFCC1642B08A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Common", "Algorithms.Common\Algorithms.Common.csproj", "{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.CommandLine", "Algorithms.CommandLine\Algorithms.CommandLine.csproj", "{5E69F079-045D-4E4A-8B82-52C543C156F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{ECB59245-EF4B-4767-A057-CFCC1642B08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB59245-EF4B-4767-A057-CFCC1642B08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB59245-EF4B-4767-A057-CFCC1642B08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E69F079-045D-4E4A-8B82-52C543C156F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E69F079-045D-4E4A-8B82-52C543C156F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E69F079-045D-4E4A-8B82-52C543C156F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E69F079-045D-4E4A-8B82-52C543C156F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

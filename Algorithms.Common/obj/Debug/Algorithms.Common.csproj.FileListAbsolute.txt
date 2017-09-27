@@ -1,6 +1,0 @@
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\bin\Debug\Algorithms.Common.dll
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\bin\Debug\Algorithms.Common.pdb
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\obj\Debug\Algorithms.Common.csprojResolveAssemblyReference.cache
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\obj\Debug\Algorithms.Common.csproj.CoreCompileInputs.cache
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\obj\Debug\Algorithms.Common.dll
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.Common\obj\Debug\Algorithms.Common.pdb

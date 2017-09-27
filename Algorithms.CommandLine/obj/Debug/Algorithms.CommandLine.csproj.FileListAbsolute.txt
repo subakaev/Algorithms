@@ -1,9 +1,0 @@
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\bin\Debug\Algorithms.CommandLine.exe.config
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\bin\Debug\Algorithms.CommandLine.exe
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\bin\Debug\Algorithms.CommandLine.pdb
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\bin\Debug\Algorithms.Common.dll
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\bin\Debug\Algorithms.Common.pdb
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\obj\Debug\Algorithms.CommandLine.csprojResolveAssemblyReference.cache
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\obj\Debug\Algorithms.CommandLine.csproj.CoreCompileInputs.cache
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\obj\Debug\Algorithms.CommandLine.exe
-D:\Sergey Bakaev\GITHUB\Algorithms\Algorithms.CommandLine\obj\Debug\Algorithms.CommandLine.pdb

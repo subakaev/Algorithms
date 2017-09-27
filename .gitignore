@@ -1,5 +1,9 @@
 
 .vs
 _ReSharper.Caches
-Wpf.Gui/obj
 Wpf.Gui/bin
+Wpf.Gui/obj
+Algorithms.CommandLine/bin
+Algorithms.CommandLine/obj
+Algorithms.Common/bin
+Algorithms.Common/obj

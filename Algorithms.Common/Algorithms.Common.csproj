@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayGenerator.cs" />
+    <Compile Include="ArrayUtils.cs" />
+    <Compile Include="ItemGenerators\IntArrayItemGenerator.cs" />
+    <Compile Include="ItemGenerators\IArrayItemGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

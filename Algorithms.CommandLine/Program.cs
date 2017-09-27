@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Algorithms.Common;
 
 namespace Algorithms.CommandLine
@@ -15,7 +12,15 @@ namespace Algorithms.CommandLine
 
             Console.WriteLine();
 
-            Console.WriteLine(string.Join(" ", ArrayGenerator.Generate(10, true, 1, 11)));
+            var array = ArrayGenerator.Generate(10, true, 1, 11);
+
+            Console.WriteLine(string.Join(" ", array));
+
+            array.Shuffle();
+            Console.WriteLine(string.Join(" ", array));
+
+            array.Shuffle(1);
+            Console.WriteLine(string.Join(" ", array));
 
             Console.ReadLine();
         }

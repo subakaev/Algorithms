@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E69F079-045D-4E4A-8B82-52C543C156F9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Algorithms.CommandLine</RootNamespace>
-    <AssemblyName>Algorithms.CommandLine</AssemblyName>
+    <ProjectGuid>{6DEFB350-B2A0-431C-A5C8-5E554ECACC91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Algorithms.Sort</RootNamespace>
+    <AssemblyName>Algorithms.Sort</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,20 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Bogosort.cs" />
+    <Compile Include="BruteForceSort.cs" />
+    <Compile Include="ISort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="SortUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms.Common\Algorithms.Common.csproj">
       <Project>{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}</Project>
       <Name>Algorithms.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Algorithms.Sort\Algorithms.Sort.csproj">
-      <Project>{6DEFB350-B2A0-431C-A5C8-5E554ECACC91}</Project>
-      <Name>Algorithms.Sort</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

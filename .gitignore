@@ -9,8 +9,3 @@ Algorithms.Common/bin
 Algorithms.Common/obj
 Algorithms.Sort/bin
 Algorithms.Sort/obj
-Algorithms.Sort.Tests/bin
-Algorithms.Sort.Tests/obj
-packages
-TestResults
-*.user

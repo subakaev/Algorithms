@@ -16,3 +16,5 @@ TestResults
 *.user
 Tests/Algorithms.Sort.Tests/bin
 Tests/Algorithms.Sort.Tests/obj
+Algorithms.Common.Tests/bin
+Algorithms.Common.Tests/obj

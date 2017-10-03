@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sort", "Algorith
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3EFF55AE-E7B8-4246-9929-147A809D8058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sort.Tests", "Algorithms.Sort.Tests\Algorithms.Sort.Tests.csproj", "{C830781F-B892-4180-8C9C-0FE1378ABFC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sort.Tests", "Tests\Algorithms.Sort.Tests\Algorithms.Sort.Tests.csproj", "{C830781F-B892-4180-8C9C-0FE1378ABFC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -36,11 +36,11 @@ namespace Algorithms.Common.Tests
 
         [TestMethod]
         public void generate_int_not_unique_test() {
-            var arr = ArrayGenerator.Generate(3, true, 1, 1);
+            var arr = ArrayGenerator.Generate(3, true, 2, 2);
 
-            Assert.AreEqual(1, arr[0]);
-            Assert.AreEqual(1, arr[1]);
-            Assert.AreEqual(1, arr[2]);
+            Assert.AreEqual(2, arr[0]);
+            Assert.AreEqual(2, arr[1]);
+            Assert.AreEqual(2, arr[2]);
         }
     }
 }

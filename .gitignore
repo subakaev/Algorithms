@@ -9,12 +9,10 @@ Algorithms.Common/bin
 Algorithms.Common/obj
 Algorithms.Sort/bin
 Algorithms.Sort/obj
-Algorithms.Sort.Tests/bin
-Algorithms.Sort.Tests/obj
 packages
 TestResults
 *.user
 Tests/Algorithms.Sort.Tests/bin
 Tests/Algorithms.Sort.Tests/obj
-Algorithms.Common.Tests/bin
-Algorithms.Common.Tests/obj
+Tests/Algorithms.Common.Tests/bin
+Tests/Algorithms.Common.Tests/obj

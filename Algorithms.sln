@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3EFF55AE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sort.Tests", "Tests\Algorithms.Sort.Tests\Algorithms.Sort.Tests.csproj", "{C830781F-B892-4180-8C9C-0FE1378ABFC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Common.Tests", "Algorithms.Common.Tests\Algorithms.Common.Tests.csproj", "{0A623DDC-29FB-4C38-9DFE-3127266A8366}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Common.Tests", "Tests\Algorithms.Common.Tests\Algorithms.Common.Tests.csproj", "{0A623DDC-29FB-4C38-9DFE-3127266A8366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

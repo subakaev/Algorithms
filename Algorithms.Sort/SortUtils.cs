@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Algorithms.Sort
 {
-    static class SortUtils
+    public static class SortUtils
     {
         public static bool IsSorted<T>(T[] array, ListSortDirection direction) where T : IComparable<T> {
             switch (direction) {

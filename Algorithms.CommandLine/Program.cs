@@ -29,6 +29,10 @@ namespace Algorithms.CommandLine
 
             Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 
+            time = PerformanceAnalyzer.GetExecutionTime(() => result = new StoogeSort<int>().Sort(array, ListSortDirection.Ascending));
+
+            Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
+
             /*var busted = new int[array.Length];
 
             var count = 0;

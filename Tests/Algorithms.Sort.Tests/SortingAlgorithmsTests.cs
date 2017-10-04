@@ -22,6 +22,7 @@ namespace Algorithms.Sort.Tests
             public SortAlgorithms() {
                 Algorithms = new ISort<T>[] {
                     new BruteForceSort<T>(),
+                    new StoogeSort<T>(), 
                 };
             }
         }

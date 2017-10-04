@@ -42,6 +42,7 @@
     <Compile Include="BruteForceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortUtilsTests.cs" />
+    <Compile Include="SortingAlgorithmsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Algorithms.Common\Algorithms.Common.csproj">

@@ -24,7 +24,8 @@ namespace Algorithms.Sort.Tests
                     new BruteForceSort<T>(),
                     new StoogeSort<T>(),
                     new BubbleSort<T>(),
-                    new SelectionSort<T>()
+                    new SelectionSort<T>(),
+                    new BubbleSelectionSort<T>()
                 };
             }
         }

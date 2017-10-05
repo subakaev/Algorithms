@@ -15,10 +15,6 @@ namespace Algorithms.Sort
             return array;
         }
 
-        public T[] SortDebug(T[] array, ListSortDirection direction, out long ticks) {
-            throw new NotImplementedException();
-        }
-
         private void Stooge(T[] array, int startIndex, int endIndex, ListSortDirection direction) {
             switch (direction) {
                 case ListSortDirection.Ascending:

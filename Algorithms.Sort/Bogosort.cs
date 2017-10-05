@@ -21,19 +21,5 @@ namespace Algorithms.Sort
 
             return array;
         }
-
-        public T[] SortDebug(T[] array, ListSortDirection direction, out long ticks) {
-            ticks = 0;
-
-            if (array.Length <= 1)
-                return array;
-
-            while (!SortUtils.IsSorted(array, direction)) {
-                array.Shuffle();
-                ticks++;
-            }
-
-            return array;
-        }
     }
 }

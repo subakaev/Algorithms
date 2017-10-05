@@ -27,11 +27,11 @@ namespace Algorithms.CommandLine
 
 //            Console.WriteLine($"Random sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 
-            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new BruteForceSort<int>().SortDebug(array, ListSortDirection.Ascending, out ticks));
+//            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new BruteForceSort<int>().SortDebug(array, ListSortDirection.Ascending, out ticks));
 
-            Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
+//            Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 
-            time = PerformanceAnalyzer.GetExecutionTime(() => result = new BubbleSort<int>().Sort(array, ListSortDirection.Ascending));
+            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new BubbleSort<int>().Sort(array, ListSortDirection.Ascending));
 
             Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 

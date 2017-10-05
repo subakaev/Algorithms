@@ -35,9 +35,5 @@ namespace Algorithms.Sort
 
             return array;
         }
-
-        public T[] SortDebug(T[] array, ListSortDirection direction, out long ticks) {
-            throw new NotImplementedException();
-        }
     }
 }

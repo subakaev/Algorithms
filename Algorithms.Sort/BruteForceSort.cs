@@ -23,14 +23,6 @@ namespace Algorithms.Sort
             return sorted;
         }
 
-        public T[] SortDebug(T[] array, ListSortDirection direction, out long ticks) {
-            var result = Sort(array, direction);
-
-            ticks = iterationsCount;
-
-            return result;
-        }
-
         private void SortInternal(T[] result, T[] array, int index, ListSortDirection direction) {
             if (isSorted)
                 return;

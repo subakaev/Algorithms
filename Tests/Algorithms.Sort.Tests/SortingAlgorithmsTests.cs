@@ -22,7 +22,8 @@ namespace Algorithms.Sort.Tests
             public SortAlgorithms() {
                 Algorithms = new ISort<T>[] {
                     new BruteForceSort<T>(),
-                    new StoogeSort<T>(), 
+                    new StoogeSort<T>(),
+                    new BubbleSort<T>(),
                 };
             }
         }
@@ -156,8 +157,8 @@ namespace Algorithms.Sort.Tests
             foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
                 var result = algorithm.Sort(moqArray.Array, ListSortDirection.Ascending);
 
-                Assert.IsTrue(moqArray.Moq1.Object == result[2], GetMessage(algorithm));
-                Assert.IsTrue(moqArray.Moq2.Object == result[1], GetMessage(algorithm));
+                Assert.IsTrue(moqArray.Moq1.Object == result[1] || moqArray.Moq1.Object == result[2], GetMessage(algorithm));
+                Assert.IsTrue(moqArray.Moq2.Object == result[1] || moqArray.Moq2.Object == result[2], GetMessage(algorithm));
                 Assert.AreEqual(moqArray.Moq3.Object, result[0], GetMessage(algorithm));
             }
         }

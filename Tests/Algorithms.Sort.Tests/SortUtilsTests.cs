@@ -8,20 +8,20 @@ namespace Algorithms.Sort.Tests
     [TestClass]
     public class SortUtilsTests
     {
-        private Mock<IComparable<object>> moq1;
-        private Mock<IComparable<object>> moq2;
-        private Mock<IComparable<object>> moq3;
-        private Mock<IComparable<object>> moq4;
+        private Mock<IComparable> moq1;
+        private Mock<IComparable> moq2;
+        private Mock<IComparable> moq3;
+        private Mock<IComparable> moq4;
 
-        private IComparable<object>[] ascendingArray;
-        private IComparable<object>[] descendingArray;
+        private IComparable[] ascendingArray;
+        private IComparable[] descendingArray;
 
         [TestInitialize]
         public void Setup() {
-            moq1 = new Mock<IComparable<object>>();
-            moq2 = new Mock<IComparable<object>>();
-            moq3 = new Mock<IComparable<object>>();
-            moq4 = new Mock<IComparable<object>>();
+            moq1 = new Mock<IComparable>();
+            moq2 = new Mock<IComparable>();
+            moq3 = new Mock<IComparable>();
+            moq4 = new Mock<IComparable>();
 
             moq1.Setup(m => m.CompareTo(moq1.Object)).Returns(0);
             moq1.Setup(m => m.CompareTo(moq2.Object)).Returns(-1);
@@ -75,7 +75,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void is_sorted_if_not_array_elements() {
-            var empty = new IComparable<object>[] { };
+            var empty = new IComparable[] { };
 
             Assert.IsTrue(SortUtils.IsSorted(empty, ListSortDirection.Ascending));
             Assert.IsTrue(SortUtils.IsSorted(empty, ListSortDirection.Descending));

@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Algorithms.Sort
 {
-    public interface ISort<T> where T : IComparable<T>
+    public interface ISort<T> where T : IComparable
     {
         T[] Sort(T[] array, ListSortDirection direction);
     }

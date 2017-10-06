@@ -4,7 +4,7 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class BubbleSort<T> : ISort<T> where T : IComparable<T>
+    public class BubbleSort<T> : ISort<T> where T : IComparable
     {
         public T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = 0; i < array.Length; i++) {

@@ -4,7 +4,7 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class BruteForceSort<T> : ISort<T> where T : IComparable<T>
+    public class BruteForceSort<T> : ISort<T> where T : IComparable
     {
         private int iterationsCount;
         private T[] sorted;

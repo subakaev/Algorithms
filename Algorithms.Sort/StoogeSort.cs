@@ -4,7 +4,7 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class StoogeSort<T> : ISort<T> where T : IComparable<T>
+    public class StoogeSort<T> : ISort<T> where T : IComparable
     {
         public T[] Sort(T[] array, ListSortDirection direction) {
             if (array.Length == 1)

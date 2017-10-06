@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class SelectionSort<T> : ISort<T> where T : IComparable<T>
+    public class SelectionSort<T> : ISort<T> where T : IComparable
     {
         public T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = 0; i < array.Length - 1; i++) {

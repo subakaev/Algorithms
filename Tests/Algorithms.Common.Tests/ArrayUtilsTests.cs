@@ -10,9 +10,9 @@ namespace Algorithms.Common.Tests
         [TestMethod]
         public void array_utils_swap_test()
         {
-            var moq1 = new Mock<IComparable<object>>();
-            var moq2 = new Mock<IComparable<object>>();
-            var moq3 = new Mock<IComparable<object>>();
+            var moq1 = new Mock<IComparable>();
+            var moq2 = new Mock<IComparable>();
+            var moq3 = new Mock<IComparable>();
 
             var arr = new[] { moq1.Object, moq2.Object, moq3.Object };
 
@@ -29,8 +29,8 @@ namespace Algorithms.Common.Tests
 
         [TestMethod]
         public void array_utils_shuffle_with_two_elements_test() {
-            var moq1 = new Mock<IComparable<object>>();
-            var moq2 = new Mock<IComparable<object>>();
+            var moq1 = new Mock<IComparable>();
+            var moq2 = new Mock<IComparable>();
 
             var arr = new[] { moq1.Object, moq2.Object };
 
@@ -42,8 +42,8 @@ namespace Algorithms.Common.Tests
 
         [TestMethod]
         public void array_utils_shuffle_count_with_two_elements_test() {
-            var moq1 = new Mock<IComparable<object>>();
-            var moq2 = new Mock<IComparable<object>>();
+            var moq1 = new Mock<IComparable>();
+            var moq2 = new Mock<IComparable>();
 
             var arr = new[] { moq1.Object, moq2.Object };
 
@@ -55,9 +55,9 @@ namespace Algorithms.Common.Tests
 
         [TestMethod]
         public void array_utils_shuffle_test() {
-            var moq1 = new Mock<IComparable<object>>();
-            var moq2 = new Mock<IComparable<object>>();
-            var moq3 = new Mock<IComparable<object>>();
+            var moq1 = new Mock<IComparable>();
+            var moq2 = new Mock<IComparable>();
+            var moq3 = new Mock<IComparable>();
 
             var arr = new[] { moq1.Object, moq2.Object, moq3.Object };
 

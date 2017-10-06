@@ -15,7 +15,7 @@ namespace Algorithms.Sort.Tests
 
         private readonly MoqArray moqArray = new MoqArray();
 
-        private class SortAlgorithms<T> where T : IComparable<T>
+        private class SortAlgorithms<T> where T : IComparable
         {
             public ISort<T>[] Algorithms { get; }
 
@@ -32,16 +32,16 @@ namespace Algorithms.Sort.Tests
 
         private class MoqUniqueArray
         {
-            public readonly Mock<IComparable<object>> Moq1;
-            public readonly Mock<IComparable<object>> Moq2;
-            public readonly Mock<IComparable<object>> Moq3;
+            public readonly Mock<IComparable> Moq1;
+            public readonly Mock<IComparable> Moq2;
+            public readonly Mock<IComparable> Moq3;
 
-            public IComparable<object>[] Array => new[] { Moq1.Object, Moq2.Object, Moq3.Object };
+            public IComparable[] Array => new[] { Moq1.Object, Moq2.Object, Moq3.Object };
 
             public MoqUniqueArray() {
-                Moq1 = new Mock<IComparable<object>>(); // 2
-                Moq2 = new Mock<IComparable<object>>(); // 3
-                Moq3 = new Mock<IComparable<object>>(); // 1
+                Moq1 = new Mock<IComparable>(); // 2
+                Moq2 = new Mock<IComparable>(); // 3
+                Moq3 = new Mock<IComparable>(); // 1
 
                 Moq1.Setup(m => m.CompareTo(Moq2.Object)).Returns(-1);
                 Moq1.Setup(m => m.CompareTo(Moq3.Object)).Returns(1);
@@ -56,16 +56,16 @@ namespace Algorithms.Sort.Tests
 
         private class MoqArray
         {
-            public readonly Mock<IComparable<object>> Moq1;
-            public readonly Mock<IComparable<object>> Moq2;
-            public readonly Mock<IComparable<object>> Moq3;
+            public readonly Mock<IComparable> Moq1;
+            public readonly Mock<IComparable> Moq2;
+            public readonly Mock<IComparable> Moq3;
 
-            public IComparable<object>[] Array => new[] { Moq1.Object, Moq2.Object, Moq3.Object };
+            public IComparable[] Array => new[] { Moq1.Object, Moq2.Object, Moq3.Object };
 
             public MoqArray() {
-                Moq1 = new Mock<IComparable<object>>(); // 2
-                Moq2 = new Mock<IComparable<object>>(); // 2
-                Moq3 = new Mock<IComparable<object>>(); // 1
+                Moq1 = new Mock<IComparable>(); // 2
+                Moq2 = new Mock<IComparable>(); // 2
+                Moq3 = new Mock<IComparable>(); // 1
 
                 Moq1.Setup(m => m.CompareTo(Moq2.Object)).Returns(0);
                 Moq1.Setup(m => m.CompareTo(Moq3.Object)).Returns(1);
@@ -134,7 +134,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_unique_moq_array_values_ascending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(moqUniqueArray.Array, ListSortDirection.Ascending);
 
                 Assert.AreEqual(moqUniqueArray.Moq1.Object, result[1], GetMessage(algorithm));
@@ -145,7 +145,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_unique_moq_array_values_descending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(moqUniqueArray.Array, ListSortDirection.Descending);
 
                 Assert.AreEqual(moqUniqueArray.Moq1.Object, result[1], GetMessage(algorithm));
@@ -156,7 +156,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_moq_array_values_ascending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(moqArray.Array, ListSortDirection.Ascending);
 
                 Assert.IsTrue(moqArray.Moq1.Object == result[1] || moqArray.Moq1.Object == result[2], GetMessage(algorithm));
@@ -167,7 +167,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_moq_array_values_descending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(moqArray.Array, ListSortDirection.Descending);
 
                 Assert.AreEqual(moqArray.Moq1.Object, result[0], GetMessage(algorithm));
@@ -178,7 +178,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_one_array_item_ascending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(new[] { moqArray.Moq1.Object }, ListSortDirection.Ascending);
 
                 Assert.AreEqual(moqArray.Moq1.Object, result[0], GetMessage(algorithm));
@@ -187,7 +187,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_one_array_item_descending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(new[] { moqArray.Moq1.Object }, ListSortDirection.Descending);
 
                 Assert.AreEqual(moqArray.Moq1.Object, result[0], GetMessage(algorithm));
@@ -196,7 +196,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_two_array_item_ascending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(new[] { moqUniqueArray.Moq1.Object, moqUniqueArray.Moq2.Object }, ListSortDirection.Ascending);
 
                 Assert.AreEqual(moqUniqueArray.Moq1.Object, result[0], GetMessage(algorithm));
@@ -206,7 +206,7 @@ namespace Algorithms.Sort.Tests
 
         [TestMethod]
         public void only_two_array_item_descending_test() {
-            foreach (var algorithm in new SortAlgorithms<IComparable<object>>().Algorithms) {
+            foreach (var algorithm in new SortAlgorithms<IComparable>().Algorithms) {
                 var result = algorithm.Sort(new[] { moqUniqueArray.Moq1.Object, moqUniqueArray.Moq2.Object }, ListSortDirection.Descending);
 
                 Assert.AreEqual(moqUniqueArray.Moq1.Object, result[1], GetMessage(algorithm));

@@ -6,7 +6,7 @@ namespace Algorithms.Sort
 {
     public static class SortUtils
     {
-        public static bool IsSorted<T>(T[] array, ListSortDirection direction) where T : IComparable<T> {
+        public static bool IsSorted<T>(T[] array, ListSortDirection direction) where T : IComparable {
             switch (direction) {
                 case ListSortDirection.Ascending:
                     return IsSorted(array, (x, y) => x.CompareTo(y) <= 0);
@@ -17,7 +17,7 @@ namespace Algorithms.Sort
             }
         }
 
-        private static bool IsSorted<T>(IReadOnlyList<T> array, Func<T, T, bool> compareFunc) where T : IComparable<T> {
+        private static bool IsSorted<T>(IReadOnlyList<T> array, Func<T, T, bool> compareFunc) where T : IComparable {
             if (array.Count <= 1)
                 return true;
 

@@ -10,37 +10,30 @@ namespace Algorithms.Sort
             for (var i = array.Length - 1; i >= 0; --i) {
                 var pos = i;
 
-                for (var j = 0; j < i; j++) {
-                    switch (direction) {
-                        case ListSortDirection.Ascending:
-                            if (array[j].CompareTo(array[pos]) > 0)
-                                pos = j;
-                            break;
-                        case ListSortDirection.Descending:
-                            if (array[j].CompareTo(array[pos]) < 0)
-                                pos = j;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
-                    }
-                }
+                for (var j = 0; j < i; j++) 
+                    if (CheckElements(array[j], array[pos], direction))
+                        pos = j;
 
                 if (pos == i)
                     continue;
 
-                if (pos != 0) 
-                    Flip(array, pos + 1);
+                if (pos != 0)
+                    array.Flip(pos + 1);
 
-                Flip(array, i + 1);
+                array.Flip(i + 1);
             }
 
             return array;
         }
 
-        private void Flip(T[] array, int n) {
-            for (var i = 0; i < n; i++) {
-                --n;
-                array.Swap(i, n);
+        private bool CheckElements(IComparable x, IComparable y, ListSortDirection direction) {
+            switch (direction) {
+                case ListSortDirection.Ascending:
+                    return x.CompareTo(y) > 0;
+                case ListSortDirection.Descending:
+                    return x.CompareTo(y) < 0;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Algorithms.Common
 {
@@ -33,6 +34,17 @@ namespace Algorithms.Common
             var dummy = array[firstIndex];
             array[firstIndex] = array[secondIndex];
             array[secondIndex] = dummy;
+        }
+
+        public static void Flip<T>(this T[] array, int n) where T : IComparable {
+            for (var i = 0; i < n; i++) {
+                --n;
+                array.Swap(i, n);
+            }
+        }
+
+        public static void Flip<T>(this T[] array) where T : IComparable {
+            array.Flip(array.Length);
         }
     }
 }

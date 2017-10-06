@@ -25,7 +25,8 @@ namespace Algorithms.Sort.Tests
                     new StoogeSort<T>(),
                     new BubbleSort<T>(),
                     new SelectionSort<T>(),
-                    new BubbleSelectionSort<T>()
+                    new BubbleSelectionSort<T>(),
+                    new PancakeSort<T>(), 
                 };
             }
         }

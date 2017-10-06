@@ -21,7 +21,7 @@ namespace Algorithms.CommandLine
             var result = new int[0];
             var ticks = 0L;
 
-            array = new[] { 2, 2, 1 };
+            array = new[] { 5,4,3, 2, 1, 6, 6,7, 2, 8, 9, 3 };
 
 //            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new Bogosort<int>().SortDebug(array, ListSortDirection.Ascending, out ticks));
 
@@ -31,7 +31,7 @@ namespace Algorithms.CommandLine
 
 //            Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 
-            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new BubbleSort<int>().Sort(array, ListSortDirection.Ascending));
+            var time = PerformanceAnalyzer.GetExecutionTime(() => result = new PancakeSort<int>().Sort(array, ListSortDirection.Ascending));
 
             Console.WriteLine($"Brute force sort:\n{string.Join(" ", result)} for {time.Milliseconds} ms; {ticks} iterations");
 

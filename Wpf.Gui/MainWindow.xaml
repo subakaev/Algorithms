@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:Wpf.Gui"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Button Click="ButtonBase_OnClick">Start</Button>
+        </StackPanel>
+        <Grid DockPanel.Dock="Top">
+            <local:GraphControl x:Name="GraphControl" />
+        </Grid>
+    </DockPanel>
 </Window>

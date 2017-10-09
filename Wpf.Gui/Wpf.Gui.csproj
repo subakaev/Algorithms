@@ -62,6 +62,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GraphControl.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,5 +94,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Algorithms.Common\Algorithms.Common.csproj">
+      <Project>{0163A9D3-14BC-471D-BBFE-0DEB9B36995A}</Project>
+      <Name>Algorithms.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Algorithms.Sort\Algorithms.Sort.csproj">
+      <Project>{6DEFB350-B2A0-431C-A5C8-5E554ECACC91}</Project>
+      <Name>Algorithms.Sort</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

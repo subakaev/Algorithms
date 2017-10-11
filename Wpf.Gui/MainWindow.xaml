@@ -6,17 +6,55 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:gui="clr-namespace:Wpf.Gui"
+        xmlns:utils="clr-namespace:Wpf.Utils;assembly=Wpf.Utils"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+        xmlns:converters="clr-namespace:Wpf.Gui.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="800"
         d:DataContext="{d:DesignInstance gui:MainWindowViewModel}">
+    
+    <Window.Resources>
+        <converters:ListSortDirectionToStringConverter x:Key="DirectionToStringConverter" />
+    </Window.Resources>
 
     <i:Interaction.Behaviors>
         <gui:TempBehavior></gui:TempBehavior>
     </i:Interaction.Behaviors>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Label VerticalAlignment="Center">Количество элементов:</Label>
-            <xctk:DecimalUpDown Minimum="3" Maximum="200" Value="{Binding ElementsCount}" VerticalAlignment="Center" />
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center">Количество элементов:</Label>
+                    <xctk:DecimalUpDown Minimum="3" Maximum="200" Value="{Binding ElementsCount}" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalAlignment="Center">Сортировать по:</Label>
+                    <ComboBox ItemsSource="{Binding Source={utils:EnumBindingSource componentModel:ListSortDirection}}"
+                              SelectedItem="{Binding Direction}"
+                              VerticalAlignment="Center">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeSortDirectionCommand}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsStarted}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Converter={StaticResource DirectionToStringConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            
             
             <Button Command="{Binding GenerateCommand}" Margin="5 0" VerticalAlignment="Center" Content="Generate">
                 <Button.Style>

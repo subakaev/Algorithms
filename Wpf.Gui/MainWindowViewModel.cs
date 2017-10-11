@@ -23,6 +23,8 @@ namespace Wpf.Gui
 
         public ICommand GenerateCommand { get; }
 
+        public ICommand ChangeSortDirectionCommand { get; }
+
         private int[] data;
 
         public int[] Data {
@@ -53,7 +55,17 @@ namespace Wpf.Gui
             }
         }
 
-        public bool CanStart => !SortUtils.IsSorted(Data, ListSortDirection.Ascending);
+        private ListSortDirection direction;
+
+        public ListSortDirection Direction {
+            get => direction;
+            set {
+                direction = value;
+                OnPropertyChanged(() => Direction);
+            }
+        }
+
+        public bool CanStart => !SortUtils.IsSorted(Data, Direction);
 
         private Task calculationTask;
 
@@ -63,6 +75,14 @@ namespace Wpf.Gui
 
         private bool isSortStarted;
 
+        public bool IsSortStarted {
+            get => isSortStarted;
+            set {
+                isSortStarted = value;
+                OnPropertyChanged(() => IsSortStarted);
+            }
+        }
+
         public MainWindowViewModel() {
             Genetate();
 
@@ -71,6 +91,10 @@ namespace Wpf.Gui
             StartStopCommand = new RelayCommand(Start);
 
             NextStepCommand = new RelayCommand(NextStep);
+
+            ChangeSortDirectionCommand = new RelayCommand(() => {
+                OnPropertyChanged(() => CanStart);
+            });
         }
 
         private void Start() {
@@ -83,24 +107,24 @@ namespace Wpf.Gui
         }
 
         private void NextStep() {
-            if (!isSortStarted)
+            if (!IsSortStarted)
                 StartSort();
 
             stepEvent.Set();
         }
 
         private void StartSort() {
-            if (isSortStarted) {
+            if (IsSortStarted) {
                 stepEvent.Set();
                 return;
             }
 
             var algorithm = new BubbleSort<int>(ProgressAction);
 
-            calculationTask = Task.Factory.StartNew(() => { algorithm.Sort(Data, ListSortDirection.Ascending); })
-                .ContinueWith(task => CompleteSort());
+            calculationTask = Task.Factory.StartNew(() => { algorithm.Sort(Data, Direction); })
+                .ContinueWith(task => { CompleteSort(); });
 
-            isSortStarted = true;
+            IsSortStarted = true;
         }
 
         private void ProgressAction(int index) {
@@ -124,22 +148,27 @@ namespace Wpf.Gui
                 calculationTask?.Wait();
             }
 
+            SelectedIndex = -1;
+
             Data = ArrayGenerator.Generate(ElementsCount, false, 1, ElementsCount + 1);
 
             OnPropertyChanged(() => CanStart);
 
-            isSortStarted = false;
+            IsSortStarted = false;
 
             RaiseGraphicsChagned();
         }
 
         private void CompleteSort() {
-            isSortStarted = false;
+            IsSortStarted = false;
             IsStarted = false;
-            isCancelling = false;
+            
             OnPropertyChanged(() => CanStart);
 
-            RaiseGraphicsChagned();
+            if (!isCancelling)
+                RaiseGraphicsChagned();
+
+            isCancelling = false;
         }
 
         private void RaiseGraphicsChagned() {

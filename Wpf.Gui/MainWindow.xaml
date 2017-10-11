@@ -3,15 +3,69 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpf.Gui"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:gui="clr-namespace:Wpf.Gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="800"
+        d:DataContext="{d:DesignInstance gui:MainWindowViewModel}">
+
+    <i:Interaction.Behaviors>
+        <gui:TempBehavior></gui:TempBehavior>
+    </i:Interaction.Behaviors>
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top">
-            <Button Click="ButtonBase_OnClick">Start</Button>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label VerticalAlignment="Center">Количество элементов:</Label>
+            <xctk:DecimalUpDown Minimum="3" Maximum="200" Value="{Binding ElementsCount}" VerticalAlignment="Center" />
+            
+            <Button Command="{Binding GenerateCommand}" Margin="5 0" VerticalAlignment="Center" Content="Generate">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsStarted}" Value="True">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Command="{Binding NextStepCommand}" VerticalAlignment="Center" Margin="5 0 0 0" Content="Шаг">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsStarted}" Value="True">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <Button Command="{Binding StartStopCommand}" IsEnabled="{Binding CanStart}" VerticalAlignment="Center" Margin="5 0 0 0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Content" Value="Старт" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsStarted}" Value="True">
+                                <Setter Property="Content" Value="Стоп" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <Label VerticalAlignment="Center" Margin="10 0 0 0">Ускорение:</Label>
+            <Slider Width="100" Minimum="1" Maximum="500" VerticalAlignment="Center" Value="{Binding Delay}" Name="DelaySlider"/>
+            <Label VerticalAlignment="Center" Content="{Binding ElementName=DelaySlider, Path=Value}" />
         </StackPanel>
         <Grid DockPanel.Dock="Top">
-            <local:GraphControl x:Name="GraphControl" />
+            <gui:GraphControl Data="{Binding Data, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              SelectedIndex="{Binding SelectedIndex}"
+                              x:Name="GraphControl">
+                
+            </gui:GraphControl>
+            
         </Grid>
     </DockPanel>
 </Window>

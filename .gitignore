@@ -16,3 +16,5 @@ Tests/Algorithms.Sort.Tests/bin
 Tests/Algorithms.Sort.Tests/obj
 Tests/Algorithms.Common.Tests/bin
 Tests/Algorithms.Common.Tests/obj
+Wpf.Utils/bin
+Wpf.Utils/obj

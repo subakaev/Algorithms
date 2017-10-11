@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows;
-
-namespace Wpf.Gui
+﻿namespace Wpf.Gui
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,15 +7,9 @@ namespace Wpf.Gui
     {
         public MainWindow()
         {
+            DataContext = new MainWindowViewModel();
+
             InitializeComponent();
-
-
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
-            GraphControl.Start();
         }
     }
-
-    
 }

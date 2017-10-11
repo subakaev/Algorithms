@@ -1,46 +1,36 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Threading;
-using Algorithms.Common;
-using Algorithms.Sort;
 
 namespace Wpf.Gui
 {
     class GraphControl : FrameworkElement
     {
-        private int[] array;
+        public static readonly DependencyProperty DataProperty = 
+            DependencyProperty.Register("Data", typeof(int[]), typeof(GraphControl));
 
-        private int maxItem;
+        public static readonly DependencyProperty SelectedIndexProperty = 
+            DependencyProperty.Register("SelectedIndex", typeof(int), typeof(GraphControl));
 
-        private int selectedIndex;
-
-        public GraphControl() {
-            array = ArrayGenerator.Generate(150, false, 1, 151);
-
-            maxItem = array.Max();
+        public int[] Data {
+            get => (int[]) GetValue(DataProperty);
+            set => SetValue(DataProperty, value);
         }
 
-        public void Start() {
-            var t = new BubbleSort<int>(ProgressAction);
-
-            Task.Factory.StartNew(() => {
-                t.Sort(array, ListSortDirection.Ascending);
-            });
-        }
-
-        private void ProgressAction(int index) {
-            selectedIndex = index;
-            Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(InvalidateVisual));
-            Thread.Sleep(10);
+        public int SelectedIndex {
+            get => GetValue(SelectedIndexProperty) as int? ?? 0;
+            set => SetValue(SelectedIndexProperty, value);
         }
 
         protected override void OnRender(DrawingContext context) {
             context.DrawRectangle(Brushes.White, new Pen(Brushes.Black, 1), new Rect(new Size(ActualWidth, ActualHeight)));
+
+            if (Data == null || Data.Length == 0)
+                return;
+
+            var maxItem = Data.Max();
+
+            var array = Data;
 
             var columnWidth = ActualWidth / (array.Length * 3 + 1);
 
@@ -49,7 +39,7 @@ namespace Wpf.Gui
             var left = columnWidth;
 
             for (var i = 0; i < array.Length; i++) {
-                context.DrawRectangle(i != selectedIndex ? Brushes.DodgerBlue : Brushes.Red, new Pen(Brushes.Black, 1), new Rect(left, ActualHeight - height * array[i], columnWidth * 2, ActualHeight));
+                context.DrawRectangle(SelectedIndex != i ? Brushes.DodgerBlue : Brushes.Red, new Pen(Brushes.Black, 1), new Rect(left, ActualHeight - height * array[i], columnWidth * 2, ActualHeight));
 
                 left += columnWidth * 3;
             }

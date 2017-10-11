@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Sort.Tests", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Common.Tests", "Tests\Algorithms.Common.Tests\Algorithms.Common.Tests.csproj", "{0A623DDC-29FB-4C38-9DFE-3127266A8366}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Utils", "Wpf.Utils\Wpf.Utils.csproj", "{69E1A808-FAD2-47F7-90DE-80C8A4E0EB21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{0A623DDC-29FB-4C38-9DFE-3127266A8366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A623DDC-29FB-4C38-9DFE-3127266A8366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A623DDC-29FB-4C38-9DFE-3127266A8366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E1A808-FAD2-47F7-90DE-80C8A4E0EB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E1A808-FAD2-47F7-90DE-80C8A4E0EB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E1A808-FAD2-47F7-90DE-80C8A4E0EB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E1A808-FAD2-47F7-90DE-80C8A4E0EB21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

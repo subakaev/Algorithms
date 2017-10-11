@@ -1,29 +1,29 @@
-using System.ComponentModel;
+п»їusing System.ComponentModel;
 using Wpf.Utils;
 
 namespace Wpf.Gui.Data {
     [TypeConverter(typeof(EnumTypeConverter))]
     public enum SortAlgorithmType
     {
-        [Description("Наивная")]
+        [Description("РќР°РёРІРЅР°СЏ")]
         Bogo,
 
-        [Description("Полный перебор")]
+        [Description("РџРѕР»РЅС‹Р№ РїРµСЂРµР±РѕСЂ")]
         BruteForce,
 
-        [Description("Пузырек")]
+        [Description("РџСѓР·С‹СЂРµРє")]
         Bubble,
 
-        [Description("Пузырек+Выбором")]
+        [Description("РџСѓР·С‹СЂРµРє+Р’С‹Р±РѕСЂРѕРј")]
         BubbleSelection,
 
-        [Description("Выбором")]
+        [Description("Р’С‹Р±РѕСЂРѕРј")]
         Selection,
 
-        [Description("Блинная")]
+        [Description("Р‘Р»РёРЅРЅР°СЏ")]
         Pancake,
 
-        [Description("Блуждающая")]
+        [Description("Р‘Р»СѓР¶РґР°СЋС‰Р°СЏ")]
         Stooge
     }
 }

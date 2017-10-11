@@ -10,6 +10,14 @@ namespace Algorithms.Sort
         private T[] sorted;
         private bool isSorted;
 
+        private readonly Action<int, T[]> progressAction = (i, ints) => { };
+
+        public BruteForceSort() { }
+
+        public BruteForceSort(Action<int, T[]> progressAction) {
+            this.progressAction = progressAction;
+        }
+
         public T[] Sort(T[] array, ListSortDirection direction) {
             if (array.Length <= 1)
                 return array;
@@ -31,6 +39,8 @@ namespace Algorithms.Sort
                 result[index] = array[i];
 
                 if (array.Length == 1) {
+                    progressAction(-1, result);
+
                     if (SortUtils.IsSorted(result, direction)) {
                         sorted = result;
                         isSorted = true;

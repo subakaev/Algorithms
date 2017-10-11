@@ -9,6 +9,7 @@
         xmlns:utils="clr-namespace:Wpf.Utils;assembly=Wpf.Utils"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
         xmlns:converters="clr-namespace:Wpf.Gui.Converters"
+        xmlns:data="clr-namespace:Wpf.Gui.Data"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="800"
         d:DataContext="{d:DesignInstance gui:MainWindowViewModel}">
@@ -22,39 +23,53 @@
     </i:Interaction.Behaviors>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <StackPanel VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
-                    <Label VerticalAlignment="Center">Количество элементов:</Label>
-                    <xctk:DecimalUpDown Minimum="3" Maximum="200" Value="{Binding ElementsCount}" VerticalAlignment="Center" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label VerticalAlignment="Center">Сортировать по:</Label>
-                    <ComboBox ItemsSource="{Binding Source={utils:EnumBindingSource componentModel:ListSortDirection}}"
-                              SelectedItem="{Binding Direction}"
-                              VerticalAlignment="Center">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding ChangeSortDirectionCommand}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <ComboBox.Style>
-                            <Style TargetType="ComboBox">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsStarted}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ComboBox.Style>
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Converter={StaticResource DirectionToStringConverter}}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-            </StackPanel>
-            
+            <Grid Margin="0 0 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Label VerticalAlignment="Center">Алгоритм:</Label>
+                <ComboBox Grid.Column="1" Grid.Row="0"
+                          ItemsSource="{Binding Source={utils:EnumBindingSource data:SortAlgorithmType}}"
+                          SelectedItem="{Binding SortAlgorithm}"
+                          VerticalAlignment="Center"/>
+
+                <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Количество элементов:</Label>
+                <xctk:DecimalUpDown Grid.Column="1" Grid.Row="1" Minimum="3" Maximum="200" Value="{Binding ElementsCount}" VerticalAlignment="Center" />
+
+                <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">Сортировать по:</Label>
+                <ComboBox Grid.Column="1" Grid.Row="2" 
+                          ItemsSource="{Binding Source={utils:EnumBindingSource componentModel:ListSortDirection}}"
+                          SelectedItem="{Binding Direction}"
+                          VerticalAlignment="Center">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeSortDirectionCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsStarted}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Converter={StaticResource DirectionToStringConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </Grid>
             
             <Button Command="{Binding GenerateCommand}" Margin="5 0" VerticalAlignment="Center" Content="Generate">
                 <Button.Style>

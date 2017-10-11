@@ -80,6 +80,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\ListSortDirectionToStringConverter.cs" />
+    <Compile Include="Data\SortAlgorithmFactory.cs" />
+    <Compile Include="Data\SortAlgorithmType.cs" />
     <Compile Include="TempBehavior.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

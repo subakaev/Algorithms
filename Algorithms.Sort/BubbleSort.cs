@@ -6,11 +6,11 @@ namespace Algorithms.Sort
 {
     public class BubbleSort<T> : ISort<T> where T : IComparable
     {
-        private readonly Action<int> beforeSwapAction = i => { };
+        private readonly Action<int, T[]> beforeSwapAction = (i, ints) => { };
 
         public BubbleSort() { }
 
-        public BubbleSort(Action<int> beforeSwapAction) {
+        public BubbleSort(Action<int, T[]> beforeSwapAction) {
             this.beforeSwapAction = beforeSwapAction;
         }
 
@@ -32,7 +32,7 @@ namespace Algorithms.Sort
 
         protected bool TrySwapElements(T[] array, int firstIndex, int secondIndex, ListSortDirection direction) {
             if (CanSwapElements(array[firstIndex], array[secondIndex], direction)) {
-                beforeSwapAction(secondIndex);
+                beforeSwapAction(secondIndex, null);
 
                 array.Swap(firstIndex, secondIndex);
 

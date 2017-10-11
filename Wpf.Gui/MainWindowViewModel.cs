@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Algorithms.Common;
 using Algorithms.Sort;
+using Wpf.Gui.Data;
 using Wpf.Utils;
 
 namespace Wpf.Gui
@@ -65,6 +66,16 @@ namespace Wpf.Gui
             }
         }
 
+        private SortAlgorithmType sortAlgorithm = SortAlgorithmType.Bubble;
+
+        public SortAlgorithmType SortAlgorithm {
+            get => sortAlgorithm;
+            set {
+                sortAlgorithm = value;
+                OnPropertyChanged(() => sortAlgorithm);
+            }
+        }
+
         public bool CanStart => !SortUtils.IsSorted(Data, Direction);
 
         private Task calculationTask;
@@ -119,7 +130,7 @@ namespace Wpf.Gui
                 return;
             }
 
-            var algorithm = new BubbleSort<int>(ProgressAction);
+            var algorithm = SortAlgorithmFactory.Get<int>(SortAlgorithm, ProgressAction);
 
             calculationTask = Task.Factory.StartNew(() => { algorithm.Sort(Data, Direction); })
                 .ContinueWith(task => { CompleteSort(); });
@@ -127,9 +138,12 @@ namespace Wpf.Gui
             IsSortStarted = true;
         }
 
-        private void ProgressAction(int index) {
+        private void ProgressAction(int index, int[] array = null) {
             if (isCancelling)
                 return;
+
+            if (array != null)
+                Data = array;
 
             SelectedIndex = index;
 

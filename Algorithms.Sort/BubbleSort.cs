@@ -30,7 +30,7 @@ namespace Algorithms.Sort
             return array;
         }
 
-        protected bool TrySwapElements(T[] array, int firstIndex, int secondIndex, ListSortDirection direction) {
+        private bool TrySwapElements(T[] array, int firstIndex, int secondIndex, ListSortDirection direction) {
             if (CanSwapElements(array[firstIndex], array[secondIndex], direction)) {
                 beforeSwapAction(secondIndex, null);
 

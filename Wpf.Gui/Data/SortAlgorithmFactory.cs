@@ -14,13 +14,13 @@ namespace Wpf.Gui.Data
                 case SortAlgorithmType.Bubble:
                     return new BubbleSort<T>(progressAction);
                 case SortAlgorithmType.BubbleSelection:
-                    return new BubbleSelectionSort<T>();
+                    return new BubbleSelectionSort<T>(progressAction);
                 case SortAlgorithmType.Selection:
-                    return new SelectionSort<T>();
+                    return new SelectionSort<T>(progressAction);
                 case SortAlgorithmType.Pancake:
-                    return new PancakeSort<T>();
+                    return new PancakeSort<T>(progressAction);
                 case SortAlgorithmType.Stooge:
-                    return new StoogeSort<T>();
+                    return new StoogeSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

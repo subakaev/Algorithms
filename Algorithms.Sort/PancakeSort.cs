@@ -6,6 +6,14 @@ namespace Algorithms.Sort
 {
     public class PancakeSort<T> : ISort<T> where T : IComparable
     {
+        private readonly Action<int, T[]> progressAction = (i, ints) => { };
+
+        public PancakeSort() { }
+
+        public PancakeSort(Action<int, T[]> progressAction) {
+            this.progressAction = progressAction;
+        }
+
         public T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = array.Length - 1; i >= 0; --i) {
                 var pos = i;
@@ -17,10 +25,13 @@ namespace Algorithms.Sort
                 if (pos == i)
                     continue;
 
-                if (pos != 0)
+                if (pos != 0) {
                     array.Flip(pos + 1);
+                    progressAction(-1, null);
+                }
 
                 array.Flip(i + 1);
+                progressAction(-1, null);
             }
 
             return array;

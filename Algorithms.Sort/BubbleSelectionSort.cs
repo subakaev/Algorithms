@@ -4,17 +4,12 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class BubbleSelectionSort<T> : ISort<T> where T : IComparable
+    public class BubbleSelectionSort<T> : SortBase<T> where T : IComparable
     {
-        private readonly Action<int, T[]> progressAction = (i, ints) => { };
-
         public BubbleSelectionSort() { }
+        public BubbleSelectionSort(Action<int, T[]> progressAction) : base(progressAction) { }
 
-        public BubbleSelectionSort(Action<int, T[]> progressAction) {
-            this.progressAction = progressAction;
-        }
-
-        public T[] Sort(T[] array, ListSortDirection direction) {
+        public override T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = 0; i < array.Length - 1; i++) {
                 var leftIndex = i;
                 var isBreak = true;
@@ -32,15 +27,16 @@ namespace Algorithms.Sort
 
                 if (leftIndex != i)
                     Swap(array, i, leftIndex);
+
+                if (IsCanceled)
+                    return array;
             }
 
             return array;
         }
 
-        private bool TrySwapElements(T[] array, int firstIndex, int secondIndex, ListSortDirection direction)
-        {
-            if (CanSwapElements(array[firstIndex], array[secondIndex], direction))
-            {
+        private bool TrySwapElements(T[] array, int firstIndex, int secondIndex, ListSortDirection direction) {
+            if (CanSwapElements(array[firstIndex], array[secondIndex], direction)) {
                 Swap(array, firstIndex, secondIndex);
 
                 return true;
@@ -49,10 +45,8 @@ namespace Algorithms.Sort
             return false;
         }
 
-        private bool CanSwapElements(T first, T second, ListSortDirection direction)
-        {
-            switch (direction)
-            {
+        private bool CanSwapElements(T first, T second, ListSortDirection direction) {
+            switch (direction) {
                 case ListSortDirection.Ascending:
                     return first.CompareTo(second) > 0;
                 case ListSortDirection.Descending:
@@ -74,7 +68,7 @@ namespace Algorithms.Sort
         }
 
         private void Swap(T[] array, int firstIndex, int secondIndex) {
-            progressAction(secondIndex, null);
+            ProgressAction(secondIndex, null);
 
             array.Swap(firstIndex, secondIndex);
         }

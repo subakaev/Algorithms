@@ -4,34 +4,29 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class PancakeSort<T> : ISort<T> where T : IComparable
+    public class PancakeSort<T> : SortBase<T> where T : IComparable
     {
-        private readonly Action<int, T[]> progressAction = (i, ints) => { };
-
         public PancakeSort() { }
+        public PancakeSort(Action<int, T[]> progressAction) : base(progressAction) { }
 
-        public PancakeSort(Action<int, T[]> progressAction) {
-            this.progressAction = progressAction;
-        }
-
-        public T[] Sort(T[] array, ListSortDirection direction) {
+        public override T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = array.Length - 1; i >= 0; --i) {
                 var pos = i;
 
-                for (var j = 0; j < i; j++) 
+                for (var j = 0; j < i; j++)
                     if (CheckElements(array[j], array[pos], direction))
                         pos = j;
 
                 if (pos == i)
                     continue;
 
-                if (pos != 0) {
-                    array.Flip(pos + 1);
-                    progressAction(-1, null);
-                }
+                if (pos != 0)
+                    Flip(array, pos + 1);
 
-                array.Flip(i + 1);
-                progressAction(-1, null);
+                Flip(array, i + 1);
+
+                if (IsCanceled)
+                    break;
             }
 
             return array;
@@ -46,6 +41,11 @@ namespace Algorithms.Sort
                 default:
                     throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
+        }
+
+        private void Flip(T[] array, int index) {
+            array.Flip(index);
+            ProgressAction(-1, null);
         }
     }
 }

@@ -4,17 +4,12 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class StoogeSort<T> : ISort<T> where T : IComparable
+    public class StoogeSort<T> : SortBase<T> where T : IComparable
     {
-        private readonly Action<int, T[]> progressAction = (i, ints) => { };
-
         public StoogeSort() { }
+        public StoogeSort(Action<int, T[]> progressAction) : base(progressAction) { }
 
-        public StoogeSort(Action<int, T[]> progressAction) {
-            this.progressAction = progressAction;
-        }
-
-        public T[] Sort(T[] array, ListSortDirection direction) {
+        public override T[] Sort(T[] array, ListSortDirection direction) {
             if (array.Length == 1)
                 return array;
 
@@ -24,6 +19,9 @@ namespace Algorithms.Sort
         }
 
         private void Stooge(T[] array, int startIndex, int endIndex, ListSortDirection direction) {
+            if (IsCanceled)
+                return;
+
             if (CanSwapItems(array[startIndex], array[endIndex], direction))
                 SwapItems(array, startIndex, endIndex);
 
@@ -47,7 +45,7 @@ namespace Algorithms.Sort
         }
 
         private void SwapItems(T[] array, int firstIndex, int secondIndex) {
-            progressAction(secondIndex, null);
+            ProgressAction(secondIndex, null);
             array.Swap(firstIndex, secondIndex);
         }
     }

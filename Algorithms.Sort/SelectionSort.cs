@@ -4,17 +4,12 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class SelectionSort<T> : ISort<T> where T : IComparable
+    public class SelectionSort<T> : SortBase<T> where T : IComparable
     {
-        private readonly Action<int, T[]> progressAction = (i, ints) => { };
-
         public SelectionSort() { }
+        public SelectionSort(Action<int, T[]> progressAction) : base(progressAction) { }
 
-        public SelectionSort(Action<int, T[]> progressAction) {
-            this.progressAction = progressAction;
-        }
-
-        public T[] Sort(T[] array, ListSortDirection direction) {
+        public override T[] Sort(T[] array, ListSortDirection direction) {
             for (var i = 0; i < array.Length - 1; i++) {
                 var leftIndex = i;
 
@@ -23,9 +18,12 @@ namespace Algorithms.Sort
                         leftIndex = j;
 
                 if (leftIndex != i) {
-                    progressAction(i, null);
+                    ProgressAction(i, null);
                     array.Swap(i, leftIndex);
                 }
+
+                if (IsCanceled)
+                    return array;
             }
 
             return array;

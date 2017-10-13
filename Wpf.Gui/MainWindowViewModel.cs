@@ -86,6 +86,8 @@ namespace Wpf.Gui
 
         private bool isSortStarted;
 
+        private ISort<int> algorithm;
+
         public bool IsSortStarted {
             get => isSortStarted;
             set {
@@ -130,7 +132,7 @@ namespace Wpf.Gui
                 return;
             }
 
-            var algorithm = SortAlgorithmFactory.Get<int>(SortAlgorithm, ProgressAction);
+            algorithm = SortAlgorithmFactory.Get<int>(SortAlgorithm, ProgressAction);
 
             calculationTask = Task.Factory.StartNew(() => { algorithm.Sort(Data, Direction); })
                 .ContinueWith(task => { CompleteSort(); });
@@ -157,6 +159,7 @@ namespace Wpf.Gui
 
         private void Genetate() {
             if (!calculationTask?.IsCompleted ?? false) {
+                algorithm?.Cancel();
                 isCancelling = true;
                 stepEvent.Set();
                 calculationTask?.Wait();

@@ -4,25 +4,17 @@ using Algorithms.Common;
 
 namespace Algorithms.Sort
 {
-    public class BruteForceSort<T> : ISort<T> where T : IComparable
+    public class BruteForceSort<T> : SortBase<T> where T : IComparable
     {
-        private int iterationsCount;
         private T[] sorted;
         private bool isSorted;
 
-        private readonly Action<int, T[]> progressAction = (i, ints) => { };
-
         public BruteForceSort() { }
+        public BruteForceSort(Action<int, T[]> progressAction) : base(progressAction) { }
 
-        public BruteForceSort(Action<int, T[]> progressAction) {
-            this.progressAction = progressAction;
-        }
-
-        public T[] Sort(T[] array, ListSortDirection direction) {
+        public override T[] Sort(T[] array, ListSortDirection direction) {
             if (array.Length <= 1)
                 return array;
-
-            iterationsCount = 0;
 
             isSorted = false;
 
@@ -35,18 +27,19 @@ namespace Algorithms.Sort
             if (isSorted)
                 return;
 
+            if (IsCanceled)
+                return;
+
             for (var i = 0; i < array.Length; i++) {
                 result[index] = array[i];
 
                 if (array.Length == 1) {
-                    progressAction(-1, result);
+                    ProgressAction(-1, result);
 
                     if (SortUtils.IsSorted(result, direction)) {
                         sorted = result;
                         isSorted = true;
                     }
-
-                    iterationsCount++;
 
                     return;
                 }

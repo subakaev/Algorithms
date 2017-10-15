@@ -25,6 +25,8 @@ namespace Wpf.Gui.Data
                     return new GnomeSort<T>(progressAction);
                 case SortAlgorithmType.Comb:
                     return new CombSort<T>(progressAction);
+                case SortAlgorithmType.Insertion:
+                    return new InsertionSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

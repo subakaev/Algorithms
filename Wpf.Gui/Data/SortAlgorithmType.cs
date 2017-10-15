@@ -30,6 +30,9 @@ namespace Wpf.Gui.Data {
         Gnome,
         
         [Description("Расческа")]
-        Comb
+        Comb,
+
+        [Description("Вставками")]
+        Insertion,
     }
 }

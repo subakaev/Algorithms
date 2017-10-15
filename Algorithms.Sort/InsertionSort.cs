@@ -16,7 +16,7 @@ namespace Algorithms.Sort
 
                 var i = j - 1;
 
-                while (i >= 0 && array[i].CompareTo(key) > 0) {
+                while (i >= 0 && CanMoveElements(array[i], key, direction)) {
                     array[i + 1] = array[i];
                     ProgressAction(i, null);
                     i--;
@@ -29,5 +29,16 @@ namespace Algorithms.Sort
 
             return array;
         }
+
+        private bool CanMoveElements(T current, T key, ListSortDirection direction) {
+            switch (direction) {
+                case ListSortDirection.Ascending:
+                    return current.CompareTo(key) > 0;
+                case ListSortDirection.Descending:
+                    return current.CompareTo(key) < 0;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
+        } 
     }
 }

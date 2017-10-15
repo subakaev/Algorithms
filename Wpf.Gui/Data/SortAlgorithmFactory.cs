@@ -21,6 +21,8 @@ namespace Wpf.Gui.Data
                     return new PancakeSort<T>(progressAction);
                 case SortAlgorithmType.Stooge:
                     return new StoogeSort<T>(progressAction);
+                case SortAlgorithmType.Gnome:
+                    return new GnomeSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

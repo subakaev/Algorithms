@@ -44,6 +44,7 @@
     <Compile Include="BruteForceSort.cs" />
     <Compile Include="BubbleSelectionSort.cs" />
     <Compile Include="BubbleSort.cs" />
+    <Compile Include="GnomeSort.cs" />
     <Compile Include="ISort.cs" />
     <Compile Include="PancakeSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

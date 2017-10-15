@@ -24,6 +24,9 @@ namespace Wpf.Gui.Data {
         Pancake,
 
         [Description("Блуждающая")]
-        Stooge
+        Stooge,
+
+        [Description("Гномья")]
+        Gnome,
     }
 }

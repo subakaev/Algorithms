@@ -23,6 +23,8 @@ namespace Wpf.Gui.Data
                     return new StoogeSort<T>(progressAction);
                 case SortAlgorithmType.Gnome:
                     return new GnomeSort<T>(progressAction);
+                case SortAlgorithmType.Comb:
+                    return new CombSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

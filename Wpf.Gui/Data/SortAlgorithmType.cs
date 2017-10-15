@@ -28,5 +28,8 @@ namespace Wpf.Gui.Data {
 
         [Description("Гномья")]
         Gnome,
+        
+        [Description("Расческа")]
+        Comb
     }
 }

@@ -34,5 +34,8 @@ namespace Wpf.Gui.Data {
 
         [Description("Вставками")]
         Insertion,
+
+        [Description("Чёт/Неч")]
+        OddEven,
     }
 }

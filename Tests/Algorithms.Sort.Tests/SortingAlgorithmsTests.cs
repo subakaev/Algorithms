@@ -27,6 +27,10 @@ namespace Algorithms.Sort.Tests
                     new SelectionSort<T>(),
                     new BubbleSelectionSort<T>(),
                     new PancakeSort<T>(), 
+                    new GnomeSort<T>(),
+                    new InsertionSort<T>(),
+                    new CombSort<T>(), 
+                    new OddEvenSort<T>(), 
                 };
             }
         }

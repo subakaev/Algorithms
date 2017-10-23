@@ -31,6 +31,7 @@ namespace Algorithms.Sort.Tests
                     new InsertionSort<T>(),
                     new CombSort<T>(), 
                     new OddEvenSort<T>(), 
+                    new CocktailSort<T>(), 
                 };
             }
         }

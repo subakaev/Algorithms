@@ -37,5 +37,8 @@ namespace Wpf.Gui.Data {
 
         [Description("Чёт/Неч")]
         OddEven,
+
+        [Description("Шейкерная")]
+        Cocktail
     }
 }

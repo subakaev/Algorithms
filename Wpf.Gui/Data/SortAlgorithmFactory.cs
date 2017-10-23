@@ -29,6 +29,8 @@ namespace Wpf.Gui.Data
                     return new InsertionSort<T>(progressAction);
                 case SortAlgorithmType.OddEven:
                     return new OddEvenSort<T>(progressAction);
+                case SortAlgorithmType.Cocktail:
+                    return new CocktailSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

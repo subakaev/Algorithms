@@ -39,6 +39,9 @@ namespace Wpf.Gui.Data {
         OddEven,
 
         [Description("Шейкерная")]
-        Cocktail
+        Cocktail,
+
+        [Description("Дерево")]
+        Tree
     }
 }

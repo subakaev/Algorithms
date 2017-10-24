@@ -31,6 +31,8 @@ namespace Wpf.Gui.Data
                     return new OddEvenSort<T>(progressAction);
                 case SortAlgorithmType.Cocktail:
                     return new CocktailSort<T>(progressAction);
+                case SortAlgorithmType.Tree:
+                    return new TreeSort<T>(progressAction);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

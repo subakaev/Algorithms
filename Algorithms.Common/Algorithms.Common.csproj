@@ -46,6 +46,7 @@
     <Compile Include="ItemGenerators\IArrayItemGenerator.cs" />
     <Compile Include="PerformanceAnalyzer\PerformanceAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
